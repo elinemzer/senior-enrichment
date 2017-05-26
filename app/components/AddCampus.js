@@ -1,5 +1,4 @@
 import React from 'react';
-import Campuses from './Campuses';
 import FormInput from './FormInput';
 
 export default function NewCampus ({handleNameChange, handleImageChange, handleSubmit, warning, name, image}) {

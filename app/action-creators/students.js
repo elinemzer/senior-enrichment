@@ -35,13 +35,13 @@ export const addNewStudent = (name, email) => {
 
 export const deleteStudent = id => {
   return (dispatch, getState) => {
-    return axios.delete(`/api/students/${student.id}`)
+    return axios.delete(`/api/students/${id}`)
     .then(res => res.data)
     .then(studentDeleted => {
-      const deleteThis = students.list.indexOf([studentDeleted])
+      const deleteThis = getState().students.list.indexOf(studentDeleted)
       const newListOfStudents = getState().students.list.splice(deleteThis, 1)
       dispatch(receiveStudents(newListOfStudents));
-      hashHistory.pop('/students')
+      hashHistory.push('/students')
     });
   };
 };

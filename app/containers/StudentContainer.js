@@ -1,3 +1,5 @@
+import React, { Component } from 'react';
+import { deleteStudent } from '../action-creators/students';
 import Student from '../components/Student';
 import { connect } from 'react-redux';
 
@@ -8,6 +10,35 @@ const mapStateToProps = state => {
   };
 };
 
-const StudentContainer = connect(mapStateToProps)(Student);
-//where are you rendering studentcontainer also can you hear me cant here you ph lol
-export default StudentContainer;
+const mapDispatchToProps = dispatch => {
+  return {
+    deleteStudent(id){
+      dispatch(deleteStudent(id))
+    }
+  }
+}
+
+
+class StudentContainer extends Component {
+  constructor(props){
+    super(props);
+    this.handleDelete = this.handleDelete.bind(this);
+  }
+
+  handleDelete(event){
+    event.preventDefault();
+    this.props.deleteStudent(this.props.selectedStudent.id);
+  }
+
+  render(){
+    return(
+      <Student
+          handleDelete={this.handleDelete}
+          campuses={this.props.campuses}
+          selectedStudent={this.props.selectedStudent}
+          />
+        )
+      }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(StudentContainer);

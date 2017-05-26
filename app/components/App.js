@@ -3,7 +3,7 @@ import Sidebar from './Sidebar';
 
 const App = ({ children }) =>  {
   return (
-    <div id="something" className="container-fluid">
+    <div id="App" className="container-fluid">
       <div className="col-xs-2">
         <Sidebar />
       </div>

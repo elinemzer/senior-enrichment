@@ -1,11 +1,11 @@
 import React from 'react';
-import StudentsContainer from '../containers/StudentsContainer';
 import { Link } from 'react-router';
 
 
 export default function Campus (props) {
   const campus = props.selectedCampus;
   const students = props.students;
+  const handleDelete = props.handleDelete;
 
   const campusStudents = students.filter(student => {
     return +campus.id === +student.campusId
@@ -35,7 +35,7 @@ export default function Campus (props) {
       <section>
       <h4>
       <Link className="btn btn-primary btn-block" to="/campuses">
-      <button type="button" className="btn btn-success">DELETE {campus.name}</button>
+      <button type="button" className="btn btn-success" onClick={handleDelete}>DELETE {campus.name}</button>
       </Link>
       </h4>
       </section>

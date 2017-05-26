@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 export default function Campuses ({ campuses }) {
 
   return (
-    <div>
+    <div className="campuses">
       <h3>All Campuses</h3>
       <div className="list-group">
         {campuses && campuses.map( campus => {

@@ -4,9 +4,8 @@ import { Link } from 'react-router'
 
 export default function Student(props){
   const student = props.selectedStudent;
-  const students = props.students;
-  // const deleteStudent = props.deleteStudent;
   const campuses = props.campuses;
+  const handleDelete = props.handleDelete;
 
   const campusName = campuses.filter(campus => {
     return +student.campusId === +campus.id
@@ -36,7 +35,7 @@ export default function Student(props){
   <section>
   <h4>
   <Link className="btn btn-primary btn-block" to="/students">
-  <button type="button" className="btn btn-success">DELETE {student.name}</button>
+  <button type="button" className="btn btn-success" onClick={handleDelete}>DELETE {student.name}</button>
   </Link>
   </h4>
   </section>

@@ -5,6 +5,31 @@ body {
   background: #87CEFA;
   padding-bottom: 56px; }
 
+.student {
+  position: absolute;
+  left: 0px;
+}
+
+.students {
+  position: absolute;
+  left: 0px;
+}
+
+.campuses {
+  position: absolute;
+  left: 0px;
+}
+
+.campus {
+  position: absolute;
+  left: 0px;
+}
+
+.well {
+  position: absolute;
+  left: 0px;
+}
+
 #main {
   padding-left: 0; }
 

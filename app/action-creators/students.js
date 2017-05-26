@@ -12,6 +12,12 @@ export const receiveStudent = student => ({
     student
 });
 
+//for dropdown menu in addStudent
+export const receiveCampuses = campuses => ({
+  type: RECEIVE_CAMPUSES,
+  campuses
+})
+
 export const getStudentById = studentId => {
   return dispatch => {
     axios.get(`/api/students/${studentId}`)
@@ -45,3 +51,13 @@ export const deleteStudent = id => {
     });
   };
 };
+
+//for dropdown menu in AddStudent
+// export const loadCampuses = () => {
+//   return dispatch => {
+//     axios.get('/api/campuses')
+//       .then(response => {
+//         dispatch(receiveCampuses(response.data));
+//       });
+//   };
+// };

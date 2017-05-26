@@ -2,8 +2,9 @@ import React from 'react';
 import Campuses from './Campuses'
 import FormInput from './FormInput';
 
-export default function NewStudent ({handleNameChange, handleEmailChange, handleSubmit, warning, email, name}) {
+export default function NewStudent ({handleNameChange, handleEmailChange, handleSubmit, warning, email, name, campuses}) {
 
+//was working on getting the dropdown menu of campuses working when time ran out.
   return (
     <div className="well" style={{marginTop: '20px'}}>
       <form className="form-horizontal" onSubmit={handleSubmit}>
@@ -12,6 +13,11 @@ export default function NewStudent ({handleNameChange, handleEmailChange, handle
           { warning && <div className="alert alert-warning">{warning}</div> }
           <FormInput handleChange={handleNameChange} inputValue={name} label={"Student Name"} />
           <FormInput handleChange={handleEmailChange} inputValue={email} label={"Student Email"}/>
+          {
+            campuses && campuses.map(campus => (
+              <option key={campus.id} value={campus.id}>{campus.name}</option>
+            ))
+          }
           <div className="form-group">
             <div className="col-xs-10 col-xs-offset-2">
               <button type="submit" className="btn btn-success">Submit</button>
@@ -25,18 +31,9 @@ export default function NewStudent ({handleNameChange, handleEmailChange, handle
 }
 
 
-// <form className="form-horizontal" noValidate name="campusSelect" onSubmit={handleSubmit}>
-// <fieldset>
-// <legend>Select a Campus</legend>
-// <div className="form-group">
-// <label htmlFor="Campus" className="col-xs-2 control-label">Campus</label>
-// <div className="col-xs-10">
-// <select className="form-control" name="campus" value={campusId} required onChange={handleChange}>
+//
 // {
 //   campuses && campuses.map(campus => (
 //     <option key={campus.id} value={campus.id}>{campus.name}</option>
 //   ))
 // }
-// </select>
-// </div>
-// </div>

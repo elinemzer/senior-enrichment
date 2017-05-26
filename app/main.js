@@ -7,7 +7,6 @@ import axios from 'axios';
 
 
 import store from './store';
-// import Root from './components/Root';
 
 import App from './components/App';
 import Campuses from './components/Campuses';
@@ -30,7 +29,7 @@ const onAppEnter = () => {
 
   return Promise
       .all([pCampuses, pStudents])
-      .then(responses => responses.map(r => r.data))
+      .then(responses => responses.map(res => res.data))
       .then(([campuses, students]) => {
         store.dispatch(receiveCampuses(campuses));
         store.dispatch(receiveStudents(students));

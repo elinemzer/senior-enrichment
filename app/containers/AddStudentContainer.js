@@ -6,7 +6,8 @@ import { connect } from 'react-redux';
 const mapStateToProps = state => {
   return {
     students: state.students,
-    selectedCampus: state.campuses.selected
+    selectedCampus: state.campuses.selected,
+    campuses: state.campuses.list
   }
 }
 
@@ -54,6 +55,7 @@ class AddStudentContainer extends Component {
           handleSubmit={this.handleSubmit}
           name={this.state.name}
           email={this.state.email}
+          campuses={this.props.campuses}
 
           />
       )

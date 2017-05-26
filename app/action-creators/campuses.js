@@ -34,7 +34,7 @@ export const addNewCampus = (name, image) => {
 };
 
 //my delete functionality is having some async issues. If you delete a campus, it doesn't delete immediately. However, if you refresh the 'campuses' view,
-//the correct campus will have been deleted. However, ran out of time before I could make this work better. 
+//the correct campus will have been deleted. However, ran out of time before I could make this work better.
 export const deleteCampus = id => {
   return (dispatch, getState) => {
     return axios.delete(`/api/campuses/${id}`)
@@ -48,6 +48,9 @@ export const deleteCampus = id => {
   };
 };
 
+
+//export const addStudentToCampus = (campusId, studentId)
+//didn't quite get to update
 // export const updateCampus = id => {
 //   return (dispatch, getState) => {
 //     return axios.put(`/api/campuses/${campus.id}`)

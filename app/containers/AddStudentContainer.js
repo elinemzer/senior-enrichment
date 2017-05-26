@@ -12,8 +12,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    addNewStudent(studentName){
-      dispatch(addNewStudent(studentName))
+    addNewStudent(name, email){
+      dispatch(addNewStudent(name, email))
     }
   }
 }
@@ -33,21 +33,17 @@ class AddStudentContainer extends Component {
 
    handleNameChange(event){
      const value = event.target.value
-    this.setState({
-      name: value
-    })
+       this.setState(Object.assign({}, this.state, {name: value}));
   }
-  handleEmailChange(event){
+
+   handleEmailChange(event){
     const value = event.target.value
-   this.setState({
-     email: value
-   })
+      this.setState(Object.assign({}, this.state, {email: value}));
  }
 
-    handleSubmit(event){
-      event.preventDefault();
-      console.log(this.state.email)
-      this.props.addNewStudent(this.state.name, this.state.email);
+  handleSubmit(event){
+    event.preventDefault();
+    this.props.addNewStudent(this.state.name, this.state.email);
     }
 
     render(){

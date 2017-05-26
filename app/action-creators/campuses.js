@@ -1,5 +1,6 @@
 import { RECEIVE_CAMPUSES, RECEIVE_CAMPUS } from '../constants';
 import axios from 'axios';
+import { hashHistory } from 'react-router';
 
 export const receiveCampuses = campuses => ({
     type: RECEIVE_CAMPUSES,
@@ -20,14 +21,36 @@ export const getCampusById = campusId => {
   };
 };
 
-export const addNewCampus = (campusName) => {
+export const addNewCampus = (name, image) => {
   return (dispatch, getState) => {
-    return axios.post('/api/campuses', {name: campusName})
+    return axios.post('/api/campuses', {name, image})
       .then(res => res.data)
       .then(campusCreated => {
         const newListOfCampuses = getState().campuses.list.concat([campusCreated]);
         dispatch(receiveCampuses(newListOfCampuses));
-        hashHistory.push(`/campuses/${campus.id}`)
+        hashHistory.push('/campuses')
       });
   };
 };
+
+export const deleteCampus = id => {
+  return (dispatch, getState) => {
+    return axios.delete(`/api/campuses/${campus.id}`)
+    .then(res => res.data)
+    .then(campusDeleted => {
+      const deleteThis = campuses.list.indexOf([campusDeleted])
+      const newListOfStudents = getState().campuses.list.splice(deleteThis, 1)
+      dispatch(receiveCampuses(newListOfCampuses));
+      hashHistory.pop(`/campuses/${campus.id}`)
+    });
+  };
+};
+
+// export const updateCampus = id => {
+//   return (dispatch, getState) => {
+//     return axios.put(`/api/campuses/${campus.id}`)
+//     .then(res => res.data)
+//     .then(campusUpdated => {
+//       const
+//   }
+// }

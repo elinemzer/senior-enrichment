@@ -5,8 +5,8 @@ import { connect } from 'react-redux';
 
 const mapDispatchToProps = dispatch => {
   return {
-    addNewCampus(campusName){
-      dispatch(addNewCampus(campusName))
+    addNewCampus(name, image){
+      dispatch(addNewCampus(name, image))
     }
   }
 }
@@ -16,30 +16,37 @@ class AddCampusContainer extends Component {
   constructor (props) {
       super(props);
       this.state = {
-        inputValue: ''
+        name: '',
+        image: ''
       };
-      this.handleChange = this.handleChange.bind(this);
+      this.handleNameChange = this.handleNameChange.bind(this);
+      this.handleImageChange = this.handleImageChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-   handleChange(event){
+   handleNameChange(event){
      const value = event.target.value
-    this.setState({
-      inputValue: value
-    })
+    this.setState(Object.assign({}, this.state, {name: value}));
   }
+
+  handleImageChange(event){
+    const value = event.target.value
+    this.setState(Object.assign({}, this.state, {image: value}));
+   }
 
     handleSubmit(event){
       event.preventDefault();
-      this.props.addNewCampus(this.state.inputValue);
+      this.props.addNewCampus(this.state.name, this.state.image);
     }
 
     render(){
       return(
         <AddCampus
-          handleChange={this.handleChange}
+          handleNameChange={this.handleNameChange}
+          handleImageChange={this.handleImageChange}
           handleSubmit={this.handleSubmit}
-          inputValue={this.state.inputValue}
+          name={this.state.name}
+          image={this.state.image}
           />
       )
     }

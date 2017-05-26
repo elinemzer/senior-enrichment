@@ -24,19 +24,19 @@ export default function NewStudent ({handleNameChange, handleEmailChange, handle
   )
 }
 
-// <div className="well">
-//   <form className="form-horizontal" noValidate name="campusSelect" onSubmit={handleSubmit}>
-//     <fieldset>
-//       <legend>Select a Campus</legend>
-//     <div className="form-group">
-//       <label htmlFor="Campus" className="col-xs-2 control-label">Campus</label>
-//     <div className="col-xs-10">
-//       <select className="form-control" name="campus" value={campusId} required onChange={handleChange}>
-//       {
-//         campuses && campuses.map(campus => (
-//           <option key={campus.id} value={campus.id}>{campus.name}</option>
-//         ))
-//       }
-//     </select>
-//     </div>
+
+// <form className="form-horizontal" noValidate name="campusSelect" onSubmit={handleSubmit}>
+// <fieldset>
+// <legend>Select a Campus</legend>
+// <div className="form-group">
+// <label htmlFor="Campus" className="col-xs-2 control-label">Campus</label>
+// <div className="col-xs-10">
+// <select className="form-control" name="campus" value={campusId} required onChange={handleChange}>
+// {
+//   campuses && campuses.map(campus => (
+//     <option key={campus.id} value={campus.id}>{campus.name}</option>
+//   ))
+// }
+// </select>
+// </div>
 // </div>

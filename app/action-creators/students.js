@@ -1,6 +1,6 @@
 import {RECEIVE_STUDENTS, RECEIVE_STUDENT} from '../constants';
 import axios from 'axios';
-// import {hashHistory} from 'react-router'
+import {hashHistory} from 'react-router'
 
 export const receiveStudents = students => ({
     type: RECEIVE_STUDENTS,
@@ -28,7 +28,7 @@ export const addNewStudent = (name, email) => {
       .then(studentCreated => {
         const newListOfStudents = getState().students.list.concat([studentCreated]);
         dispatch(receiveStudents(newListOfStudents));
-        hashHistory.push(`/students/${student.id}`)
+        hashHistory.push('/students')
       });
   };
 };
@@ -41,7 +41,7 @@ export const deleteStudent = id => {
       const deleteThis = students.list.indexOf([studentDeleted])
       const newListOfStudents = getState().students.list.splice(deleteThis, 1)
       dispatch(receiveStudents(newListOfStudents));
-      hashHistory.pop(`/students/${student.id}`)
+      hashHistory.pop('/students')
     });
   };
 };

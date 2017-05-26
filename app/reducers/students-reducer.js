@@ -1,4 +1,4 @@
-import {RECEIVE_STUDENTS, RECEIVE_STUDENT} from '../constants';
+import {RECEIVE_STUDENTS, RECEIVE_STUDENT, DELETE_STUDENT} from '../constants';
 
 const initialStudentState = {
   list: [],

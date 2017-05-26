@@ -3,6 +3,13 @@ import AddStudent from '../components/AddStudent';
 import { addNewStudent } from '../action-creators/students';
 import { connect } from 'react-redux';
 
+const mapStateToProps = state => {
+  return {
+    students: state.students,
+    selectedCampus: state.campuses.selected
+  }
+}
+
 const mapDispatchToProps = dispatch => {
   return {
     addNewStudent(studentName){
@@ -57,4 +64,4 @@ class AddStudentContainer extends Component {
     }
 }
 
-export default connect(null, mapDispatchToProps)(AddStudentContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(AddStudentContainer)

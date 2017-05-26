@@ -19,7 +19,7 @@ export default function Campus (props) {
       </div>
 
       <div>
-        <h3>All Students Enrolled at {campus.name}</h3>
+        <h3>All Students Enrolled at {campus.name}: </h3>
         <div className="list-group">
         {campusStudents && campusStudents.map(student => {
           return (

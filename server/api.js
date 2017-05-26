@@ -43,6 +43,7 @@ api.get('/students/:id', function(req, res, next){
 
 //POST A NEW Student
 api.post('/students', function(req, res, next){
+  console.log(req.body)
   Student.create(req.body)
   .then(studentCreated => res.status(201).json(studentCreated))
   .catch(next);

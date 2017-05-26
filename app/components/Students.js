@@ -6,7 +6,7 @@ export default function Students ({ students }) {
 
   return (
     <div>
-      <h3>Students</h3>
+      <h3>All Students</h3>
       <div className="list-group">
       {students && students.map(student => {
         return (
@@ -19,8 +19,8 @@ export default function Students ({ students }) {
       </div>
       <section>
       <h4>
-      <Link className="btn btn-primary btn-block" to="/new-student">
-      <span className="glyphicon glyphicon-plus"></span> ADD NEW STUDENT
+      <Link className="btn btn-primary" to="/new-student">
+      <button type="button" className="btn btn-success">ADD NEW STUDENT</button>
       </Link>
       </h4>
       </section>

@@ -2,7 +2,7 @@ import React from 'react';
 import Campuses from '../components/Campuses';
 import { connect } from 'react-redux';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     campuses: state.campuses.list
   }

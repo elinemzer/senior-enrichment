@@ -5,7 +5,7 @@ export default function Campuses ({ campuses }) {
 
   return (
     <div>
-      <h3>Campuses</h3>
+      <h3>All Campuses</h3>
       <div className="list-group">
         {campuses && campuses.map( campus => {
           return (
@@ -19,7 +19,7 @@ export default function Campuses ({ campuses }) {
       <section>
       <h4>
       <Link className="btn btn-primary btn-block" to="/new-campus">
-      <span className="glyphicon glyphicon-plus"></span> ADD NEW CAMPUS
+      <button type="button" className="btn btn-success">ADD NEW CAMPUS</button>
       </Link>
       </h4>
       </section>

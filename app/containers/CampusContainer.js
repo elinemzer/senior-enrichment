@@ -1,9 +1,10 @@
 import Campus from '../components/Campus';
 import { connect } from 'react-redux';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
-    selectedCampus: state.campuses.selected
+    selectedCampus: state.campuses.selected,
+    students: state.students.list
   };
 };
 

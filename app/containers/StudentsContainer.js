@@ -2,7 +2,7 @@ import React from 'react';
 import Students from '../components/Students';
 import { connect } from 'react-redux';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     students: state.students.list
   }

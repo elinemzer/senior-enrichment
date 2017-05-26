@@ -16,30 +16,42 @@ class AddStudentContainer extends Component {
   constructor (props) {
       super(props);
       this.state = {
-        inputValue: ''
+        name: '',
+        email: ''
       };
-      this.handleChange = this.handleChange.bind(this);
+      this.handleNameChange = this.handleNameChange.bind(this);
+      this.handleEmailChange = this.handleEmailChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-   handleChange(event){
+   handleNameChange(event){
      const value = event.target.value
     this.setState({
-      inputValue: value
+      name: value
     })
   }
+  handleEmailChange(event){
+    const value = event.target.value
+   this.setState({
+     email: value
+   })
+ }
 
     handleSubmit(event){
       event.preventDefault();
-      this.props.addNewStudent(this.state.inputValue);
+      console.log(this.state.email)
+      this.props.addNewStudent(this.state.name, this.state.email);
     }
 
     render(){
       return(
         <AddStudent
-          handleChange={this.handleChange}
+          handleEmailChange={this.handleEmailChange}
+          handleNameChange={this.handleNameChange}
           handleSubmit={this.handleSubmit}
-          inputValue={this.state.inputValue}
+          name={this.state.name}
+          email={this.state.email}
+
           />
       )
     }

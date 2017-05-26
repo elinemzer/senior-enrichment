@@ -15,4 +15,4 @@ module.exports = db.define('student', {
 
 //validate that students MUST have a campus
 
-//must delete when campuses are delete
+//must delete when campuses are deleted

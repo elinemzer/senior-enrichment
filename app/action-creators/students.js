@@ -21,9 +21,9 @@ export const getStudentById = studentId => {
   };
 };
 
-export const addNewStudent = (studentName) => {
+export const addNewStudent = (name, email) => {
   return (dispatch, getState) => {
-    return axios.post('/api/students', {name: studentName})
+    return axios.post('/api/students', {name, email})
       .then(res => res.data)
       .then(studentCreated => {
         const newListOfStudents = getState().students.list.concat([studentCreated]);
@@ -33,9 +33,9 @@ export const addNewStudent = (studentName) => {
   };
 };
 
-export const deleteStudent = studentName => {
+export const deleteStudent = id => {
   return (dispatch, getState) => {
-    return axios.delete('/api/students', {name: studentName})
+    return axios.delete(`/api/students/${student.id}`)
     .then(res => res.data)
     .then(studentDeleted => {
       const deleteThis = students.list.indexOf([studentDeleted])
